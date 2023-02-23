@@ -12,15 +12,19 @@ class Depo extends Model
 
     protected $fillable = 'name';
 
-    public function user(): HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class);
     }
 
-    public function invoice(): hasMany
+    public function invoices(): hasMany
     {
         return $this->hasMany(Invoice::class);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'depo_product');
+    }
 
 }

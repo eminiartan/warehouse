@@ -11,7 +11,7 @@ class Store extends Model
     use HasFactory;
     protected $fillable = 'name';
 
-    public function invoice(): hasMany
+    public function invoices(): hasMany
     {
         return $this->hasMany(Invoice::class);
     }
