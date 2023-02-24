@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Depo extends Model
 {
@@ -22,9 +23,9 @@ class Depo extends Model
         return $this->hasMany(Invoice::class);
     }
 
-    public function products()
+    public function products(): MorphToMany
     {
-        return $this->belongsToMany(Product::class, 'depo_product');
+        return $this->morphToMany(Product::class, 'depo_product');
     }
 
 }
