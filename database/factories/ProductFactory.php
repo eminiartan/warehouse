@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             'name' => fake()->name,
             'code' =>fake()->word,
-            'barcode' =>fake()->word,
+            'barcode' =>fake()->ean13(),
         ];
     }
 }

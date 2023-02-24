@@ -13,14 +13,23 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
             'password'=>bcrypt('password'),
             'is_admin' => true,
-//            [ 'depo_id' => Depo::create()->id]
+
         ]);
+
+        \App\Models\User::factory()->create([
+            'name' => 'chaggy',
+            'email' => 'chaggy@test.com',
+            'password'=>bcrypt('password'),
+            'is_admin' => false,
+        ]);
+
+        \App\Models\User::factory()
+            ->count(10)
+            ->create();
     }
 }
