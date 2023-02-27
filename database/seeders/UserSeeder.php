@@ -13,11 +13,15 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+//         $depo = Depo::limit(2)->get();
+//        $depo = Depo::factory(2)->create();
+
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
             'password'=>bcrypt('password'),
             'is_admin' => true,
+
 
         ]);
 

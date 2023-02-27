@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Depo extends Model
 {
     use HasFactory;
 
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
     public function users(): HasMany
     {
@@ -23,9 +23,9 @@ class Depo extends Model
         return $this->hasMany(Invoice::class);
     }
 
-    public function products(): MorphToMany
+    public function products(): BelongsToMany
     {
-        return $this->morphToMany(Product::class, 'depo_product');
+        return $this->belongsToMany(Product::class)->withPivot('quantity');;
     }
 
 }

@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Product extends Model
 {
@@ -22,9 +22,9 @@ class Product extends Model
         return $this->hasOne(Detail::class);
     }
 
-    public function depos(): MorphToMany
+    public function depos(): BelongsToMany
     {
-        return $this->morphedByMany(Depo::class, 'depo_product');
+        return $this->belongsToMany(Depo::class)->withPivot('quantity');
     }
 
 }
