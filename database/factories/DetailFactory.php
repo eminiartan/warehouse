@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class DetailsFactory extends Factory
+class DetailFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,6 @@ class DetailsFactory extends Factory
      */
     public function definition(): array
     {
-        $product = Product::create();
-
         return [
             'cost' => fake()->numberBetween(1, 1000),
             'price' => fake()->numberBetween(1, 15000),
@@ -26,7 +24,7 @@ class DetailsFactory extends Factory
             'dimension' => fake()->word,
             'image' => fake()->word,
             'category' => fake()->word,
-            'product_id' => $product->id,
+            'product_id' =>fake()->numberBetween([1,100000]),
         ];
     }
 }

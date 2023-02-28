@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Depo;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -13,15 +12,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-//         $depo = Depo::limit(2)->get();
-//        $depo = Depo::factory(2)->create();
+        Depo::factory(2)->create();
 
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
             'password'=>bcrypt('password'),
             'is_admin' => true,
-
+            'depo_id' => null,
 
         ]);
 
@@ -30,6 +28,7 @@ class UserSeeder extends Seeder
             'email' => 'chaggy@test.com',
             'password'=>bcrypt('password'),
             'is_admin' => false,
+            'depo_id'=> '1',
         ]);
 
         \App\Models\User::factory()
