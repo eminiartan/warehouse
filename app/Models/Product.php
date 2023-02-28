@@ -17,9 +17,9 @@ class Product extends Model
         'barcode',
     ];
 
-    public function detail(): HasOne
+    public function property(): HasOne
     {
-        return $this->hasOne(Detail::class);
+        return $this->hasOne(Property::class);
     }
 
     public function depos(): BelongsToMany

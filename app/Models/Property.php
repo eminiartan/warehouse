@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Detail extends Model
+class Property extends Model
 {
     use HasFactory;
 
@@ -24,5 +24,4 @@ class Detail extends Model
     {
         return $this->belongsTo(Product::class);
     }
-
 }

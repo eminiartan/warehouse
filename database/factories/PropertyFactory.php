@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Property>
  */
-class DetailFactory extends Factory
+class PropertyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -24,7 +23,7 @@ class DetailFactory extends Factory
             'dimension' => fake()->word,
             'image' => fake()->word,
             'category' => fake()->word,
-            'product_id' =>fake()->numberBetween([1,100000]),
+            'product_id' =>fake()->randomElement([1,10]),
         ];
     }
 }
