@@ -23,7 +23,6 @@ class PropertyFactory extends Factory
             'dimension' => fake()->word,
             'image' => fake()->word,
             'category' => fake()->word,
-            'product_id' =>fake()->randomElement([1,10]),
         ];
     }
 }
