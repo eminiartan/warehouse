@@ -15,9 +15,9 @@ class Invoice extends Model
         'items',
     ];
 
-    public function store(): BelongsTo
+    public function market(): BelongsTo
     {
-        return $this->belongsTo(Store::class);
+        return $this->belongsTo(Market::class);
     }
 
     public function depo(): BelongsTo
