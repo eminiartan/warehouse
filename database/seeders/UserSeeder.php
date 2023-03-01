@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
 
         \App\Models\User::factory()
-            ->count(10)
+            ->count(15)
             ->create();
     }
 }
