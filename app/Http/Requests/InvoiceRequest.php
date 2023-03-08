@@ -2,13 +2,18 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Depo;
-use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class ProfileUpdateRequest extends FormRequest
+class InvoiceRequest extends FormRequest
 {
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return false;
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -17,11 +22,9 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'is_admin' =>'boolean',
+            'market_id' => 'required' | 'exists:markets,id',
             'depo_id' => 'required' | 'exists:depos,id',
+            'items' => ['required', 'array'],
         ];
-
     }
 }

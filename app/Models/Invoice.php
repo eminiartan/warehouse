@@ -9,10 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Invoice extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'store_id',
         'depo_id',
         'items',
+    ];
+
+    protected $casts = [
+        'items' => 'array',
     ];
 
     public function market(): BelongsTo
