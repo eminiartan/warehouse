@@ -26,7 +26,7 @@ class PropertyRequest extends FormRequest
             'price' => 'required|integer',
             'color' => ['string', 'required'],
             'dimension' => ['string', 'required'],
-            'image' => ['dimensions:max_width=4096,max_height=4096'],
+            'image' => 'nullable|image|dimensions:max_width=100,max_height=200',
             'category' => ['string', 'required'],
             'product_id' => 'required' | 'exists:products,id',
 

@@ -12,8 +12,19 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+{{--                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">--}}
+{{--                        {{ __('Dashboard') }}--}}
+{{--                    </x-nav-link>--}}
+
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                         Dashboard
+                    </x-nav-link>
+
+{{--                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">--}}
+{{--                        Products--}}
+{{--                    </x-nav-link>--}}
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        Users
                     </x-nav-link>
                 </div>
             </div>
