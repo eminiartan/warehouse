@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('market_id')->nullable()->constrained('markets');
-                $table->foreignId('depo_id')->nullable()->constrained('depos');
+                $table->foreignId('market_id')->constrained('markets');
+                $table->foreignId('depo_id')->constrained('depos');
                 $table->json('items');
                 $table->timestamps();
         });

@@ -16,10 +16,11 @@ class PropertyFactory extends Factory
      */
     public function definition(): array
     {
+        $color =['Red', 'Green', 'Blue', 'Yellow', 'Orange', 'Purple', 'Pink', 'Brown', 'Black', 'White'];
         return [
-            'cost' => fake()->numberBetween(1, 1000),
-            'price' => fake()->numberBetween(1, 15000),
-            'color' => fake()->word,
+            'cost' => fake()->numberBetween(100, 1000),
+            'price' => fake()->numberBetween(500, 15000),
+            'color' => fake()->randomElement($color),
             'dimension' => fake()->word,
             'image' => fake()->word,
             'category' => fake()->word,

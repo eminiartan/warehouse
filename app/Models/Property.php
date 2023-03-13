@@ -11,13 +11,13 @@ class Property extends Model
     use HasFactory;
 
     protected $fillable = [
+        'product_id',
         'cost',
         'price',
         'color',
         'dimension',
         'image',
         'category',
-        'product_id'
     ];
 
     public function product(): BelongsTo

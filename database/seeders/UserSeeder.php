@@ -17,18 +17,18 @@ class UserSeeder extends Seeder
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
-            'password'=>bcrypt('password'),
+            'password' => bcrypt('password'),
             'is_admin' => true,
-            'depo_id' => null,
+            'depo_id' => 1,
 
         ]);
 
         \App\Models\User::factory()->create([
             'name' => 'chaggy',
             'email' => 'chaggy@test.com',
-            'password'=>bcrypt('password'),
+            'password' => bcrypt('password'),
             'is_admin' => false,
-            'depo_id'=> '1',
+            'depo_id' => '1',
         ]);
 
         \App\Models\User::factory()
