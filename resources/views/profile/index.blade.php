@@ -37,6 +37,12 @@
                         </table>
                     </div>
 
+                    <div class="space-x-4 lg:flex lg:flex-col lg:justify-end lg:items-end">
+                        <x-button href="{{ route('profile.create') }}" size="lg" class="w-full mb-3">
+                            Create New User
+                        </x-button>
+                    </div>
+
                     <div class="mt-2">
                         {{ $users->links() }}
                     </div>

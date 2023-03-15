@@ -23,9 +23,27 @@ class ProfileController extends Controller
         return view('profile.index', compact('users'));
     }
 
+    public function create(): View
+    {
+        return view('profile.create');
+    }
+
     /**
      * Display the user's profile form.
      */
+
+    public function store(ProfileUpdateRequest $request) : RedirectResponse
+    {
+        $user = new User();
+        $validated = $request->validate($user->validateFields());
+
+        $validated['password'] = Hash::make($validated['password']);
+
+        User::create($validated);
+
+        return to_route('profile.index')->with('message', 'success|Përdoruesi u shtua');
+
+    }
     public function edit(Request $request): View
     {
         return view('profile.edit', [
