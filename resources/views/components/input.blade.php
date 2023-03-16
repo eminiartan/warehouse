@@ -1,6 +1,5 @@
 <div>
     <input
-        type="{{ $type }}"
         id="{{ $name }}"
         name="{{ $name }}"
         placeholder="{{ $label }}"
