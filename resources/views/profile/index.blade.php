@@ -21,7 +21,6 @@
                                 </th>
                             </tr>
                             </thead>
-
                             <tbody class="bg-white divide-y divide-gray-200 divide-solid">
                             @foreach($users as $user)
                                 <tr class="bg-white">
@@ -30,6 +29,23 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                         {{ $user->email }}
+                                    </td>
+                                    <td>
+                                        <div class="flex justify-end">
+                                            <div class="flex space-x-2">
+                                                <a href="{{ route('profile.edit', $user->id) }}"
+                                                   class="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-md">Edit</a>
+                                                <form
+                                                    class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md"
+                                                    method="POST"
+                                                    action="{{ route('profile.destroy', $user->id) }}"
+                                                    onsubmit="return confirm('Are you sure?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

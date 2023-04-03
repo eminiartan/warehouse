@@ -38,8 +38,7 @@ class ProfileController extends Controller
         $validated = $request->validated();
         $validated['password'] = Hash::make('password');
 
-         $user = User::create($validated);
-         dd($user);
+        User::create($validated);
 
         return to_route('profile.index')->with('message', 'success|Përdoruesi u shtua');
 
