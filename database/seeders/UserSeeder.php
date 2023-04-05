@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'email' => 'chaggy@test.com',
             'password' => bcrypt('password'),
             'is_admin' => false,
-            'depo_id' => '1',
+            'depo_id' => '2',
         ]);
 
         \App\Models\User::factory()

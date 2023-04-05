@@ -23,7 +23,7 @@
 {{--                    <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">--}}
 {{--                        Products--}}
 {{--                    </x-nav-link>--}}
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                    <x-nav-link :href="route('profile.index')" :active="request()->routeIs('profile.index')">
                         Users
                     </x-nav-link>
                 </div>

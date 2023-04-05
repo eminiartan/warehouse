@@ -13,7 +13,7 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        \App\Models\Product::factory(10)
+        \App\Models\Product::factory(500)
             ->create()
             ->each(function ($product) {
                 Property::factory(1)

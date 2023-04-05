@@ -3,17 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+
+    /**
+     * Display the all users
+     */
+    public function index(): View
+    {
+        $users = User::paginate();
+
+        return view('profile.index', compact('users'));
+    }
+
+    public function create(): View
+    {
+        return view('profile.create');
+    }
+
     /**
      * Display the user's profile form.
      */
+
+    public function store(ProfileUpdateRequest $request): RedirectResponse
+    {
+        $validated = $request->validated();
+        $validated['password'] = Hash::make('password');
+
+        User::create($validated);
+
+        return to_route('profile.index')->with('message', 'success|Përdoruesi u shtua');
+
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [
